@@ -7,7 +7,6 @@ from contextlib import contextmanager
 from logging import Logger
 from typing import Any, Callable, Optional
 
-from form_observability import ContextAwareTracer, ctx
 from opentelemetry import trace
 from opentelemetry.context import attach, detach
 from opentelemetry.propagators.composite import CompositePropagator
@@ -22,6 +21,7 @@ from thrift.transport.TTransport import TTransportException
 
 from baseplate import Baseplate, RequestContext, TraceInfo
 from baseplate.lib.edgecontext import EdgeContextFactory
+from baseplate.lib.otel_context import ContextAwareTracer, ctx
 from baseplate.lib.prometheus_metrics import default_latency_buckets
 from baseplate.lib.propagator_redditb3_thrift import RedditB3ThriftFormat
 from baseplate.thrift.ttypes import Error, ErrorCode

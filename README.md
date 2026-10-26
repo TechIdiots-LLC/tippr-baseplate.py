@@ -9,6 +9,8 @@ still use it, so it's kept working here on current Python and packages.
 
 What's different from reddit's last release (2.7.2b4):
 
+* No formenergy-observability (or Dagster, which it needs): the two pieces of
+  it baseplate used are in `baseplate/lib/otel_context.py`.
 * No `pkg_resources`: the version is read with `importlib.metadata`, so it
   works with current setuptools.
 * OpenTelemetry 1.28.2 / 0.49b2 (releases that don't need `pkg_resources`).

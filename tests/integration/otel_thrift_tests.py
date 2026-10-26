@@ -253,8 +253,7 @@ class ThriftTraceHeaderTests(GeventPatchedTestCase, TestBase):
                 SpanAttributes.NET_PEER_NAME: "localhost",
             },
         )
-        # these two attributes are added by formenergy-observability
-        # https://github.com/Form-Energy/formenergy-observability/blob/32e4c60c620d7ee8ea1cf0543a5cd42ab801b4b0/form_observability/context_aware.py#L69L75
+        # these two attributes are added by baseplate.lib.otel_context
         self.assertIn("os.type", thrift_server_span.attributes)
         self.assertIn("host.name", thrift_server_span.attributes)
 

@@ -3,7 +3,6 @@ import logging
 import socket
 from typing import Any, Union
 
-from form_observability import ctx
 from gevent.pool import Pool
 from gevent.server import StreamServer
 from opentelemetry import trace
@@ -15,6 +14,7 @@ from thrift.transport.TSocket import TSocket
 from thrift.transport.TTransport import TBufferedTransportFactory, TTransportException
 
 from baseplate.lib import config
+from baseplate.lib.otel_context import ctx
 from baseplate.server import runtime_monitor
 
 logger = logging.getLogger(__name__)
