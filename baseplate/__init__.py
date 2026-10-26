@@ -7,13 +7,13 @@ from types import TracebackType
 from typing import Any, Callable, NamedTuple, Optional
 
 import gevent.monkey
-from pkg_resources import DistributionNotFound, get_distribution
+from importlib.metadata import PackageNotFoundError, version
 
 from baseplate.lib import UnknownCallerError, config, get_calling_module_name, metrics
 
 try:
-    __version__ = get_distribution(__name__).version
-except DistributionNotFound:
+    __version__ = version(__name__)
+except PackageNotFoundError:
     # package is not installed
     __version__ = "unknown"
 
