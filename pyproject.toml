@@ -30,13 +30,13 @@ kazoo = { version = ">=2.5.0,<3.0", optional = true }
 kombu = { version = ">=5.3.3", optional = true }
 legacy-cgi = { version = "*", python = ">=3.13" }
 objgraph = { version = ">=3.6.0", optional = true }
-opentelemetry-api = "^1.26.0"
-opentelemetry-exporter-otlp = "^1.26.0"
-opentelemetry-instrumentation-logging = "^0.47b0"
-opentelemetry-instrumentation-pyramid = "^0.47b0"
-opentelemetry-instrumentation-requests = "^0.47b0"
-opentelemetry-instrumentation-threading = "^0.47b0"
-opentelemetry-sdk = "^1.26.0"
+opentelemetry-api = "^1.28.2"
+opentelemetry-exporter-otlp = "^1.28.2"
+opentelemetry-instrumentation-logging = ">=0.49b2,<1"
+opentelemetry-instrumentation-pyramid = { version = ">=0.49b2,<1", optional = true }
+opentelemetry-instrumentation-requests = ">=0.49b2,<1"
+opentelemetry-instrumentation-threading = ">=0.49b2,<1"
+opentelemetry-sdk = "^1.28.2"
 posix-ipc = ">=1.0.0,<2.0"
 prometheus-client = ">=0.12.0"
 psycogreen = "^1.0.0"
@@ -62,7 +62,7 @@ cqlmapper = ["reddit-cqlmapper"]
 kafka = ["confluent-kafka"]
 memcache = ["pymemcache"]
 prometheus = []  # Kept for backwards compatibility, these are now main requirements
-pyramid = ["pyramid"]
+pyramid = ["pyramid", "opentelemetry-instrumentation-pyramid"]
 redis = ["redis"]
 redis-py-cluster = ["redis-py-cluster"]
 refcycle = ["objgraph"]
