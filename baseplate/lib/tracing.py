@@ -22,7 +22,7 @@ class RateLimited(Sampler):
     def __init__(self, sampler: Sampler, rps: int):
         self.rps = rps
         rate = Rate(rps, Duration.SECOND)
-        self.limiter = Limiter(rate, raise_when_fail=False)
+        self.limiter = Limiter(rate)
         self.sampler = sampler
 
     def should_sample(
@@ -38,7 +38,9 @@ class RateLimited(Sampler):
         res = self.sampler.should_sample(
             parent_context, trace_id, name, kind, attributes, links, trace_state
         )
-        if res != SamplingResult(Decision.DROP) and self.limiter.try_acquire("ratelimit"):
+        if res != SamplingResult(Decision.DROP) and self.limiter.try_acquire(
+            "ratelimit", blocking=False
+        ):
             return res
         return SamplingResult(Decision.DROP)
 

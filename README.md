@@ -13,7 +13,8 @@ What's different from reddit's last release (2.7.2b4):
   it baseplate used are in `baseplate/lib/otel_context.py`.
 * No `pkg_resources`: the version is read with `importlib.metadata`, so it
   works with current setuptools.
-* OpenTelemetry 1.28.2 / 0.49b2 (releases that don't need `pkg_resources`).
+* Python 3.10 or newer, with current pyrate-limiter (4) and python-json-logger
+  (3 or 4); OpenTelemetry 1.28 or newer, which don't need `pkg_resources`.
 * Sentry setup that works with newer sentry-sdk versions.
 
 Work happens on `develop`. tippr pins a commit of it in its

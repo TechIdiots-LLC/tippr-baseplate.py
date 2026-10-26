@@ -1,8 +1,8 @@
 from opentelemetry import trace
-from pythonjsonlogger import jsonlogger
+from pythonjsonlogger.json import JsonFormatter
 
 
-class CustomJsonFormatter(jsonlogger.JsonFormatter):
+class CustomJsonFormatter(JsonFormatter):
     def process_log_record(self, log_record: dict) -> dict:
         log_record["level"] = log_record.pop("levelname", None)
         try:
