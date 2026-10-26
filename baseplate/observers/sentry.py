@@ -1,11 +1,11 @@
 from __future__ import annotations
 
+import inspect
 import logging
 from types import TracebackType
 from typing import TYPE_CHECKING, Any
 
 import sentry_sdk
-import inspect
 
 from baseplate import BaseplateObserver, RequestContext, ServerSpanObserver, Span, _ExcInfo
 from baseplate.lib import config
@@ -116,7 +116,9 @@ def init_sentry_client_from_config(raw_config: config.RawConfig, **kwargs: Any) 
             else:
                 sentry_sdk.init(**accepted_kwargs)
         except Exception:
-            logger.exception("Failed to initialize sentry client after sanitizing kwargs; skipping sentry init")
+            logger.exception(
+                "Failed to initialize sentry client after sanitizing kwargs; skipping sentry init"
+            )
 
 
 class SentryBaseplateObserver(BaseplateObserver):

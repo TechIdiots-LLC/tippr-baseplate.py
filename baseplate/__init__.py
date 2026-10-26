@@ -3,11 +3,11 @@ import os
 import random
 from collections.abc import Iterator  # pylint: disable=import-error
 from contextlib import contextmanager
+from importlib.metadata import PackageNotFoundError, version
 from types import TracebackType
 from typing import Any, Callable, NamedTuple, Optional
 
 import gevent.monkey
-from importlib.metadata import PackageNotFoundError, version
 
 from baseplate.lib import UnknownCallerError, config, get_calling_module_name, metrics
 

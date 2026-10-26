@@ -115,6 +115,7 @@ html_show_copyright = False
 # -- Autodoc --
 autodoc_member_order = "bysource"
 
-rst_prolog = """.. attention::
-    baseplate.py has been archived and is no longer maintained. This documentation will not be updated.
+rst_prolog = """.. note::
+    This is tippr's maintained fork of baseplate.py:
+    https://github.com/TechIdiots-LLC/tippr-baseplate.py
 """
